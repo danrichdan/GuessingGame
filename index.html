@@ -6,13 +6,37 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Guessing Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script>
-        var the_number = null;
+            var the_number = null;
+
+            function pick_number() {
+                var random_number;
+                random_number = Math.floor((Math.random() * 10) + 1);
+                console.log("random_number : ",random_number);
+                return random_number;
+            };
+
+            function make_guess() {
+                var the_guess = $('#guess_input').val();
+                console.log(the_guess);
+                if(the_guess > the_number) {
+                    $("#response_div").text("Too High!");
+                } else if(the_guess < the_number) {
+                    $("#response_div").text("Too Low!");
+                } else {
+                    $("#response_div").text("You guessed it!");
+                }
+            };
     </script>
 </head>
-<body>
+<body onload="the_number = pick_number();">
     <input type="text" id="guess_input">
     <div id="response_div"></div>
     <button>Submit Your Guess</button>
+    <script>
+        $("button").attr("onclick", "make_guess();");
+
+    </script>
 </body>
 </html>
