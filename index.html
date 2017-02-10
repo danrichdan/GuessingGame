@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Guessing Game</title>
+    <title>The Genie's Guessing Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="main.css">
@@ -35,13 +35,15 @@
 <body onload="the_number = pick_number();">
     <div id="wrapper">
         <main>
-            <h1>The Genie's Guessing Game</h1>
+            <h1>The Genie's <span>Guessing Game</span></h1>
             <h2>In order to get your 3 wishes....</h2>
             <h3>You need to guess the correct number between 1 and 100.</h3>
             <h3>It's still easier than winning the lottery.</h3>
+            <p>Click or tap on the magic lamp.</p>
             <img src="images/magic_lamp.png" alt="magic lamp">
-            <input type="text" id="guess_input">
             <div id="response_div"></div>
+            <input type="text" id="guess_input">
+
             <button>Submit Your Guess</button>
         </main>
 
