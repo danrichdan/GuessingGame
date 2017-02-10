@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Guessing Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
     <script>
             var the_number = null;
 
@@ -31,12 +33,22 @@
     </script>
 </head>
 <body onload="the_number = pick_number();">
-    <input type="text" id="guess_input">
-    <div id="response_div"></div>
-    <button>Submit Your Guess</button>
-    <script>
-        $("button").attr("onclick", "make_guess();");
+    <div id="wrapper">
+        <main>
+            <h1>The Genie's Guessing Game</h1>
+            <h2>In order to get your 3 wishes....</h2>
+            <h3>You need to guess the correct number between 1 and 100.</h3>
+            <h3>It's still easier than winning the lottery.</h3>
+            <img src="images/magic_lamp.png" alt="magic lamp">
+            <input type="text" id="guess_input">
+            <div id="response_div"></div>
+            <button>Submit Your Guess</button>
+        </main>
 
-    </script>
+        <script>
+            $("button").attr("onclick", "make_guess();");
+
+        </script>
+    </div>
 </body>
 </html>
