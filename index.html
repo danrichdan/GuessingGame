@@ -1,18 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Guessing Game</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-</head>
-<body onload="the_number=pick_number();">
-  Make a guess: <br/>
-  <input id="guess_input" type="text"/>
-  <button>Submit your Guess</button>
-  <div id="response_div">
 
-  </div>
-<br/>
-  <script src="script.js"></script>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Genie's Guessing Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="main.css">
+    <script>
+            var the_number = null;
+
+            function pick_number() {
+                var random_number;
+                random_number = Math.floor((Math.random() * 10) + 1);
+                console.log("random_number : ",random_number);
+                return random_number;
+            };
+
+            function make_guess() {
+                var the_guess = $('#guess_input').val();
+                console.log(the_guess);
+                if(the_guess > the_number) {
+                    $("#response_div").text("Too High!");
+                } else if(the_guess < the_number) {
+                    $("#response_div").text("Too Low!");
+                } else {
+                    $("#response_div").text("You guessed it!");
+                }
+            };
+    </script>
+</head>
+<body onload="the_number = pick_number();">
+    <div id="wrapper">
+        <main>
+            <h1>The Genie's <span>Guessing Game</span></h1>
+            <h2>In order to get your 3 wishes....</h2>
+            <h3>You need to guess the correct number between 1 and 100.</h3>
+            <h3>It's still easier than winning the lottery.</h3>
+            <p>Click or tap on the magic lamp.</p>
+            <img src="images/magic_lamp.png" alt="magic lamp">
+            <div id="response_div"></div>
+            <input type="text" id="guess_input">
+
+            <button>Submit Your Guess</button>
+        </main>
+
+        <script>
+            $("button").attr("onclick", "make_guess();");
+
+        </script>
+    </div>
 </body>
 </html>
