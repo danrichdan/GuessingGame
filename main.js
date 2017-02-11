@@ -160,14 +160,17 @@ function make_guess() {
         $('img[src*="magic_lamp"]').fadeOut().addClass('fadeOut');
         setTimeout(function(){
             //genie apears
-            $('img[src*="genie"]').fadeIn().addClass('fadeIn');
+            $('img[src*="genie"]').fadeIn().toggleClass('fadeIn');
         },1000);
         setTimeout(function(){
             //genie apears
-            $('#response_div').fadeIn().addClass('fadeIn').text("Uh, yeah... Sorry... I'm not a wish granting " +
+            $('#response_div').fadeIn().toggleClass('fadeIn').text("Uh, yeah... Sorry... I'm not a wish granting " +
                 "Genie....");
         },2000);
             // genie says something(new text next to him) and he and text vanish
+        setTimeout(function() {
+            $('img[src*="genie"]').fadeOut(1000).toggleClass('fadeOut');
+        }, 5000);
     } else {
         $("#response_div").text("I'm not sure what you mean.");
         //completely opaque
