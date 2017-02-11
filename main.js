@@ -7,8 +7,7 @@ var the_number = null;
 // start with a null value
 // Styling issues with the height of the image div and the two different images
 // also if the text is the same, "getting Warm" from one guess to the next,
-//have the previous one dissappear and then the new one reapear
-
+//have the previous one dissappear and then the new one reappear
 
 $(document).ready(function() {
     the_number = pick_number();
@@ -118,21 +117,25 @@ function correctGuess() {
         $('img[src*="genie"]').fadeIn().toggleClass('fadeIn');
     },1000);
     setTimeout(function(){
-        //genie apears
+        //Genie text apears
         $('#response_div').fadeIn().toggleClass('fadeIn').text("Uh, yeah... Sorry... I'm not a wish granting " +
             "Genie....");
     },2000);
-    // genie says something(new text next to him) and he and text vanish
+    // genie vanishes
     setTimeout(function() {
         $('img[src*="genie"]').fadeOut(1000).toggleClass('fadeOut');
     }, 5000);
     setTimeout(function(){
-        //genie apears
+        //lamp apears
         $('img[src*="magic_lamp"]').fadeIn().toggleClass('fadeIn');
     },6000);
+    completelyOpaque();
 };
 
-//MODIFY THE MAKE GUESS FUNCTION
+//CHANGE THE RANGES BEFORE GOING LIVE
+//Maybe HAVE THE RESPONSE TEXT GO BLANK AND THEN REPOPULATE EACH TIME
+    //Might have to create variables for each response;
+        //Maybe add and remove classes
 function make_guess() {
     var the_guess = $('#guess_input').val();
     the_guess = parseInt(the_guess);
