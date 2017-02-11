@@ -50,6 +50,8 @@ function glimpseGenie() {
     }, 5000);
     setTimeout(function() {
         $('p').fadeIn(700).removeClass('hidden');
+        //game area not immediately viewable on mobile, so added the anchor
+        $('a').attr('href','#game');
         assignClickEvent();
     },6000);
 };
