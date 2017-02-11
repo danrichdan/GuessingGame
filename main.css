@@ -39,6 +39,21 @@ button {
     border: 2px dotted rgb(115,57,57);
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+p {
+    font-weight: bold;
+}
+#image-section {
+    height: 150px;
+}
+
+#description {
+    margin-bottom: 50px;
+}
+
 @media (min-width: 732px) {
     #wrapper {
         height: 100vh;
