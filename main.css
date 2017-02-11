@@ -10,6 +10,8 @@
 
 main {
     font-family: Papyrus;
+    /*font-family: 'Dr Sugiyama', cursive;*/
+    /*font-size: 1.75em;*/
     color: rgb(115,57,57);
     width: 75%;
     margin: 0 auto;
@@ -35,6 +37,21 @@ button {
     font-size: 1.3em;
     font-weight: bold;
     border: 2px dotted rgb(115,57,57);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+p {
+    font-weight: bold;
+}
+#image-section {
+    height: 150px;
+}
+
+#description {
+    margin-bottom: 50px;
 }
 
 @media (min-width: 732px) {
