@@ -1,3 +1,6 @@
+/*******************
+BASE STYLES
+********************/
 #wrapper {
     background: linear-gradient(rgba(245,199,199, .8),rgba(246,227,109, .7) ),
                 url(images/oasis.jpg) center no-repeat;
@@ -51,8 +54,13 @@ button {
     text-transform: uppercase;
 }
 
+/***
+Try flexbox so this can be deleted
+or position the field and button absolutely
+or toggle the invisiblity class?
+**/
 #image-section {
-    height: 275px;
+    height: 260px;
 }
 
 #description {
