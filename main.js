@@ -5,8 +5,9 @@ $(document).ready(function() {
     hideElements();
     glimpseGenie();
 });
-//Hide the input field and button on page load
 
+//Hide the genie, the paragraph, input field
+//and the button on page load
 function hideElements() {
     $('img[src*="genie"]').hide();
     $('input').hide();
@@ -41,18 +42,6 @@ $('img[src*="magic_lamp"]').on("click", function() {
     $('input').fadeIn();
     $('button').fadeIn();
 });
-    //hide lamp and show a genie image in it's place for a second
-    //hide the genie image and bring back the lamp
-
-//if the user guesses close to the number,
-    //hide the lamp
-    // show the genie
-    // the text says warm
-
-//if the user guesses cold,
-    // the genie gets opaque
-    //too cold and the genie disapears
-    //the lamp comes back
 
 function pick_number() {
     var random_number;
@@ -65,28 +54,67 @@ function pick_number() {
 function make_guess() {
     var the_guess = $('#guess_input').val();
     the_guess = parseInt(the_guess);
-    var wayTooHighRange = the_number + 5;
-    var wayTooLowRange = the_number - 5;
+    var wayTooHighRange = the_number + 10;
+    var wayTooLowRange = the_number - 10;
+    var tooHigh = the_number + 5;
+    var tooLow = the_number - 5;
     console.log('Here is the guess : ',the_guess);
     console.log('Here is the wayTooHighRange : ', wayTooHighRange);
 
-    if(the_guess > the_number && the_guess >= wayTooHighRange) {
+    // Add classes and remove classes which increase or decrease the image's(magic lamp) opacity
+    // depending on how warm or cold there guesses are
+        //Create two classes
+            //mid-opacity
+            //little opacity
+    if(the_guess > the_number && the_guess > tooHigh && the_guess >= wayTooHighRange) {
         $("#response_div").text("Way Too High!");
-
-    } else if(the_guess > the_number && the_guess < wayTooHighRange) {
-        $("#response_div").text("Getting Warmer");
-
-    } else if(the_guess < the_number && the_guess <= wayTooLowRange) {
+        //completely opaque
+            //see if img has the classes for mid-opacity or little opacity
+                //if they do then remove them
+    } else if(the_guess > the_number && the_guess >= tooHigh && the_guess < wayTooHighRange) {
+        $("#response_div").text("Too High");
+        //mid-opacity
+            //see if img has the class for little opacity
+                // if it does, then remove it and add the class for mid-opacity
+        //else
+            //see if the img does not have the class for mid-opacity
+                //if not, then add it
+    } else if(the_guess > the_number && the_guess < tooHigh) {
+        $("#response_div").text("Getting Warm");
+        //little opacity
+            //see if img has the class for mid-opacity
+                // if it does, then remove it and add the class for little opacity
+            //else
+                //see if the img does not have the class for little opacity
+                 //if not, then add it
+    }else if(the_guess < the_number && the_guess < tooLow && the_guess <= wayTooLowRange) {
         $("#response_div").text("Way Too Low!");
-
-    } else if(the_guess >  wayTooLowRange && the_guess < the_number) {
+        //completely opaque
+            //see if img has the classes for mid-opacity or little opacity
+                //if they do then remove them
+    } else if(the_guess < the_number && the_guess <= tooLow && the_guess > wayTooLowRange ) {
         $("#response_div").text("Too Low!");
-
-    } else if (the_guess == the_number ){
+        //mid-opacity
+            //see if img has the class for little opacity
+                // if it does, then remove it and add the class for mid-opacity
+            //else
+                //see if the img does not have the class for mid-opacity
+                    //if not, then add it
+    } else if(the_guess < the_number && the_guess >= tooLow) {
+        $("#response_div").text("Getting Warm");
+        //little opacity
+            //see if img has the class for mid-opacity
+                // if it does, then remove it and add the class for little opacity
+            //else
+                //see if the img does not have the class for little opacity
+                    //if not, then add it
+    }else if (the_guess == the_number ){
         $("#response_div").text("You guessed it!");
-
+        // lamp fades out and genie apears
+            // genie says something(new text next to him) and he and text vanish
     } else {
         $("#response_div").text("I'm not sure what you mean.");
+        //completely opaque
     }
 };
 

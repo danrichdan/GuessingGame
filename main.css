@@ -46,6 +46,7 @@ button {
 p {
     font-weight: bold;
 }
+
 #image-section {
     height: 150px;
 }
@@ -54,12 +55,25 @@ p {
     margin-bottom: 50px;
 }
 
+
+/******Classes for magic lamp fading******/
+.mid-opacity {
+    opacity: .6;
+}
+
+.low-opacity {
+    opacity: .3;
+}
+
+/********************
+MEDIA QUERIES
+*******************/
+
 @media (min-width: 732px) {
     #wrapper {
         height: 100vh;
+        padding-top: 75px;
     }
 }
-/*h1 span {*/
-    /*color: rgb(69,95,172);*/
-/*}*/
+
 
