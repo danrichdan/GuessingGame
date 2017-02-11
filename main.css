@@ -9,7 +9,7 @@
 }
 
 main {
-    font-family: Papyrus;
+    font-family: Papyrus,fantasy;
     /*font-family: 'Dr Sugiyama', cursive;*/
     /*font-size: 1.75em;*/
     color: rgb(115,57,57);
@@ -43,18 +43,26 @@ button {
     visibility: hidden;
 }
 
-p {
+#description p {
     font-weight: bold;
 }
 
+#description p span {
+    text-transform: uppercase;
+}
+
 #image-section {
-    height: 150px;
+    height: 275px;
 }
 
 #description {
     margin-bottom: 50px;
 }
 
+#response_div {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
 /******Classes for magic lamp fading******/
 .mid-opacity {
@@ -64,6 +72,57 @@ p {
 .low-opacity {
     opacity: .3;
 }
+
+
+/******Win Animation******/
+.fadeOut{
+    animation-name: fade;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+    0% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+    50%{
+        filter: blur(7px);
+        opacity: 1;
+    }
+    75% {
+        filter: blur(10px);
+        opacity: .3;
+    }
+    100%{
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+@keyframes fade-in {
+    0% {
+        filter: blur(0px);
+        opacity: 0;
+    }
+    50%{
+        filter: blur(7px);
+        opacity: .3;
+    }
+    75% {
+        filter: blur(10px);
+        opacity: 1;
+    }
+    100%{
+        filter: blur(10px);
+        opacity: 1;
+    }
+}
+.fadeIn {
+    animation-name: fade-in;
+    animation-duration: 1.5s;
+    animation-fill-mode: backwards;
+}
+
 
 /********************
 MEDIA QUERIES

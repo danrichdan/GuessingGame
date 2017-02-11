@@ -1,5 +1,20 @@
 var the_number = null;
 
+//CREATE FUNCTIONS FOR EACH SCENARIO IN GUESS
+//completelyOpaque(), midOpacity(), lowOpacity()
+//remove excess code
+//remove click handler from magic lamp on doc ready
+//add click handler to magic lamp after everything has faded in and out
+//after win, add button to play again?
+//either change the range from 20 to 10 and the other values too
+// OR come up with a way of saying warmer, colder, red hot, with each new guess
+//maybe store the value of each guess? or just the first
+// start with a null value
+// Styling issues with the height of the image div and the two different images
+// also if the text is the same, "getting Warm" from one guess to the next,
+//have the previous one dissappear and then the new one reapear
+
+
 $(document).ready(function() {
     the_number = pick_number();
     hideElements();
@@ -34,7 +49,7 @@ function glimpseGenie() {
     setTimeout(function() {
         $('p').fadeIn(700).removeClass('hidden');
     },6000);
-}
+};
 
 //when the lamp is clicked or tapped
 $('img[src*="magic_lamp"]').on("click", function() {
@@ -69,52 +84,100 @@ function make_guess() {
     if(the_guess > the_number && the_guess > tooHigh && the_guess >= wayTooHighRange) {
         $("#response_div").text("Way Too High!");
         //completely opaque
-            //see if img has the classes for mid-opacity or little opacity
-                //if they do then remove them
+        //see if img has the classes for mid-opacity or little opacity
+        if($('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            //if they do then remove them
+            $('img[src*="magic_lamp"]').removeClass('mid-opacity');
+        } else if($('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            $('img[src*="magic_lamp"]').removeClass('low-opacity');
+        };
     } else if(the_guess > the_number && the_guess >= tooHigh && the_guess < wayTooHighRange) {
         $("#response_div").text("Too High");
         //mid-opacity
-            //see if img has the class for little opacity
-                // if it does, then remove it and add the class for mid-opacity
-        //else
-            //see if the img does not have the class for mid-opacity
-                //if not, then add it
+        //see if the img does not have the class for mid-opacity
+        if(!$('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            //if not, then add it
+            $('img[src*="magic_lamp"]').addClass('mid-opacity');
+        }
+        //see if img has the class for low opacity
+        if($('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+        // if it does, then remove it
+            $('img[src*="magic_lamp"]').removeClass('low-opacity');
+        };
     } else if(the_guess > the_number && the_guess < tooHigh) {
         $("#response_div").text("Getting Warm");
         //little opacity
+        //see if the img does not have the class for low-opacity
+        if(!$('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            //if not, then add it
+            $('img[src*="magic_lamp"]').addClass('low-opacity');
+        }
             //see if img has the class for mid-opacity
-                // if it does, then remove it and add the class for little opacity
-            //else
-                //see if the img does not have the class for little opacity
-                 //if not, then add it
+        if($('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            // if it does, then remove it
+            $('img[src*="magic_lamp"]').removeClass('mid-opacity');
+        };
+
     }else if(the_guess < the_number && the_guess < tooLow && the_guess <= wayTooLowRange) {
         $("#response_div").text("Way Too Low!");
         //completely opaque
-            //see if img has the classes for mid-opacity or little opacity
-                //if they do then remove them
+        //see if img has the classes for mid-opacity or little opacity
+        if($('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            //if they do then remove them
+            $('img[src*="magic_lamp"]').removeClass('mid-opacity');
+        } else if($('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            $('img[src*="magic_lamp"]').removeClass('low-opacity');
+        };
     } else if(the_guess < the_number && the_guess <= tooLow && the_guess > wayTooLowRange ) {
         $("#response_div").text("Too Low!");
         //mid-opacity
-            //see if img has the class for little opacity
-                // if it does, then remove it and add the class for mid-opacity
-            //else
-                //see if the img does not have the class for mid-opacity
-                    //if not, then add it
+        //see if the img does not have the class for mid-opacity
+        if(!$('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            //if not, then add it
+            $('img[src*="magic_lamp"]').addClass('mid-opacity');
+        }
+        //see if img has the class for low opacity
+        if($('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            // if it does, then remove it
+            $('img[src*="magic_lamp"]').removeClass('low-opacity');
+        };
     } else if(the_guess < the_number && the_guess >= tooLow) {
         $("#response_div").text("Getting Warm");
         //little opacity
-            //see if img has the class for mid-opacity
-                // if it does, then remove it and add the class for little opacity
-            //else
-                //see if the img does not have the class for little opacity
-                    //if not, then add it
+        //see if the img does not have the class for low-opacity
+        if(!$('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            //if not, then add it
+            $('img[src*="magic_lamp"]').addClass('low-opacity');
+        }
+        //see if img has the class for mid-opacity
+        if($('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            // if it does, then remove it
+            $('img[src*="magic_lamp"]').removeClass('mid-opacity');
+        };
     }else if (the_guess == the_number ){
         $("#response_div").text("You guessed it!");
-        // lamp fades out and genie apears
+        // lamp fades out and
+        $('img[src*="magic_lamp"]').fadeOut().addClass('fadeOut');
+        setTimeout(function(){
+            //genie apears
+            $('img[src*="genie"]').fadeIn().addClass('fadeIn');
+        },1000);
+        setTimeout(function(){
+            //genie apears
+            $('#response_div').fadeIn().addClass('fadeIn').text("Uh, yeah... Sorry... I'm not a wish granting " +
+                "Genie....");
+        },2000);
             // genie says something(new text next to him) and he and text vanish
     } else {
         $("#response_div").text("I'm not sure what you mean.");
         //completely opaque
+        //see if img has the classes for mid-opacity or little opacity
+        if($('img[src*="magic_lamp"]').hasClass('mid-opacity')) {
+            //if they do then remove them
+            $('img[src*="magic_lamp"]').removeClass('mid-opacity');
+        } else if($('img[src*="magic_lamp"]').hasClass('low-opacity')) {
+            $('img[src*="magic_lamp"]').removeClass('low-opacity');
+        };
     }
 };
 
