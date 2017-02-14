@@ -1,14 +1,5 @@
 var the_number = null;
 
-//after win, add button to play again?
-//either change the range from 20 to 10 and the other values too
-// OR come up with a way of saying warmer, colder, red hot, with each new guess
-//maybe store the value of each guess? or just the first
-// start with a null value
-// Styling issues with the height of the image div and the two different images
-// also if the text is the same, "getting Warm" from one guess to the next,
-//have the previous one dissappear and then the new one reappear
-
 $(document).ready(function() {
     the_number = pick_number();
     hideElements();
@@ -66,7 +57,7 @@ $('img[src*="magic_lamp"]').on("click", function() {
 
 function pick_number() {
     var random_number;
-    random_number = Math.floor((Math.random() * 20) + 1);
+    random_number = Math.floor((Math.random() * 10) + 1);
     console.log("random_number : ",random_number);
     return random_number;
 };
@@ -134,17 +125,13 @@ function correctGuess() {
     completelyOpaque();
 };
 
-//CHANGE THE RANGES BEFORE GOING LIVE
-//Maybe HAVE THE RESPONSE TEXT GO BLANK AND THEN REPOPULATE EACH TIME
-    //Might have to create variables for each response;
-        //Maybe add and remove classes
 function make_guess() {
     var the_guess = $('#guess_input').val();
     the_guess = parseInt(the_guess);
-    var wayTooHighRange = the_number + 10;
-    var wayTooLowRange = the_number - 10;
-    var tooHigh = the_number + 5;
-    var tooLow = the_number - 5;
+    var wayTooHighRange = the_number + 5;
+    var wayTooLowRange = the_number - 5;
+    var tooHigh = the_number + 2;
+    var tooLow = the_number - 2;
     console.log('Here is the guess : ',the_guess);
     console.log('Here is the wayTooHighRange : ', wayTooHighRange);
 
