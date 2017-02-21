@@ -144,7 +144,7 @@ function make_guess() {
         midOpacity();
 
     } else if(the_guess > the_number && the_guess < tooHigh) {
-        $("#response_div").text("Getting Warm");
+        $("#response_div").text("Pretty Close.");
         lowOpacity();
 
     } else if(the_guess < the_number && the_guess < tooLow && the_guess <= wayTooLowRange) {
@@ -156,7 +156,7 @@ function make_guess() {
         midOpacity();
 
     } else if(the_guess < the_number && the_guess >= tooLow) {
-        $("#response_div").text("Getting Warm");
+        $("#response_div").text("Pretty Close.");
         lowOpacity();
 
     } else if (the_guess == the_number ){
