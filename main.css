@@ -1,6 +1,7 @@
 /*******************
 BASE STYLES
 ********************/
+
 #wrapper {
     background: linear-gradient(rgba(245,199,199, .8),rgba(246,227,109, .7) ),
                 url(images/oasis.jpg) center no-repeat;
@@ -53,12 +54,16 @@ button {
 #description p span {
     text-transform: uppercase;
 }
+footer {
+    background: transparent;
+    height: 200px;
+    width: 100%;
+}
 
-/***
-Try flexbox so this can be deleted
-or position the field and button absolutely
-or toggle the invisiblity class?
-**/
+footer p {
+    visibility: hidden;
+}
+
 #image-section {
     height: 260px;
 }
@@ -135,12 +140,18 @@ or toggle the invisiblity class?
 /********************
 MEDIA QUERIES
 *******************/
-
+/*create a media query similar to the ipad dimensions 768 * 1024 and maybe some protrait/landscape media queries too */
 @media (min-width: 732px) {
     #wrapper {
         height: 100vh;
         padding-top: 75px;
+        padding-bottom: 200px;
     }
 }
 
+@media screen and (min-width: 732px) and (min-height: 1200px) {
+    #wrapper {
+        padding-top: 200px;
+    }
+}
 
